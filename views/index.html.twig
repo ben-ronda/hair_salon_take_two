@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To Do List</title>
+  </head>
+  <body>
+    <h1>Welcome to To Do List</h1>
+
+    <p>Create a new category:</p>
+
+    <form action="/stylists" method="post">
+       <label for="name">Stylist:</label>
+       <input id="name" name="name" type="text">
+
+       <button type="submit">Add Stylist</button>
+    </form>
+
+    {% if stylists is not empty %}
+        <p>Here are all stylists:</p>
+        <ul>
+            {% for stylist in stylists %}
+                <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No stylists yet!</p>
+    {% endif %}
+
+  </body>
+</html>

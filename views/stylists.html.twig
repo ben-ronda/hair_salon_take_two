@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>To Do List</title>
+</head>
+<body>
+    <h1>{{ stylist.getName }}</h1>
+
+    {% if clients is not empty %}
+        <p>Here are the clients:</p>
+        <ul>
+            {% for client in clients %}
+                <li>{{ client.getName }} : {{client.getEmail }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <h4>Add a client</h4>
+
+    <form action='/clients' method='post'>
+        <div>
+            <input id="stylist_id" name="stylist_id" type="hidden" value="{{ category.getId() }}">
+            <label for='client_name'>Client Name:</label>
+            <input id='client_name' name='client_name' type='text'>
+        </div>
+        <div>
+            <input id="stylist_id" name="stylist_id" type="hidden" value="{{ category.getId() }}">
+            <label for='email'>Client Email:</label>
+            <input id='email' name='email' type='text'>
+        </div>
+        <button type='submit'>Add client</button>
+    </form>
+
+    <p><a href='/'>Home</a></p>
+</body>
+</html>
