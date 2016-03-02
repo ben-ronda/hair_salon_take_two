@@ -62,7 +62,7 @@
                 $email = $client['email'];
                 $id = $client['id'];
                 $stylist_id = $client['stylist_id'];
-                $new_client = new Client($name, $email, $id, $client_id);
+                $new_client = new Client($name, $email, $id, $stylist_id);
                 array($clients, $new_client);
             }
             return $clients;

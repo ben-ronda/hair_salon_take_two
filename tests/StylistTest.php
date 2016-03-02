@@ -7,7 +7,7 @@
 
     require_once "src/Stylist.php";
 
-    $server = 'mysql:host=localhost:8889;dbname=hair_salon_test';
+    $server = 'mysql:host=localhost;dbname=hair_salon_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -41,7 +41,8 @@
             $this->assertEquals([$test_stylist, $test_stylist2], $result);
         }
 
-        function test_deleteAll(){
+        function test_deleteAll()
+        {
             $name = "Ben Stiller";
             $name2 = "Derek Zoolander";
             $test_stylist = new Stylist($name);
