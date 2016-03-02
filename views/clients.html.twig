@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>To Do List</title>
+    <title>Hair Salon</title>
   </head>
   <body>
-    <h1>Tasks</h1>
+    <h1>Clients</h1>
 
     {% if clients is not empty %}
       <p>Clients:</p>
@@ -25,7 +25,7 @@
         <input id='email' name='email' type='text'>
       </div>
 
-      <button type="submit">Add Task</button>
+      <button type="submit">Add Client</button>
     </form>
 
     <form action="/delete_clients" method="post">
