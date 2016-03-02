@@ -16,7 +16,7 @@
             $this->name = $name;
         }
 
-        function get_id(){
+        function getId(){
             return $this->id;
         }
 
