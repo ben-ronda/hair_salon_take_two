@@ -74,8 +74,8 @@
           $client_name2 = "Kyle";
           $email2 = "kyle@email.com";
           $id3 = 3;
-          $test_task2 = new Client($client_name2, $email2, $id3, $test_stylist_id);
-          $test_task2->save();
+          $test_client2 = new Client($client_name2, $email2, $id3, $test_stylist_id);
+          $test_client2->save();
 
           $result = $test_stylist->getClients();
 
