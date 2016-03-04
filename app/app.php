@@ -5,7 +5,7 @@
 
     $app = new Silex\Application();
 
-    $server = 'mysql:host=localhost:8889;dbname=hair_salon';
+    $server = 'mysql:host=localhost;dbname=hair_salon';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -38,6 +38,7 @@
         $stylist_id = $_POST['stylist_id'];
         $client = new Client($client_name, $email, $id = null, $stylist_id);
         $client->save();
+<<<<<<< HEAD
         // var_dump($_POST['stylist_id']);
 
 
@@ -47,6 +48,13 @@
         // var_dump($clients);
 
         return $app['twig']->render('stylists.html.twig', array('stylist' => $stylist, 'clients' => $clients));
+=======
+        var_dump($stylists_id);
+        $stylists = Stylist::find($stylists_id);
+        $clients = $stylists->getClients();
+        var_dump($clients);
+        return $app['twig']->render('stylists.html.twig', array('stylists' => $stylists, 'clients' => $clients));
+>>>>>>> 606f86939605fd8739abaa11c7fd84cf11a01c63
     });
 
     $app->post("/delete_clients", function() use ($app){
