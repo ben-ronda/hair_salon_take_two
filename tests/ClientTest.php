@@ -108,8 +108,8 @@
 
             $client_name2 = "Paul Styles";
             $email2 = "pstyles@email.com";
-            $test_client = new Client($client_name2, $email2, $id, $stylist_id);
-            $test_client->save();
+            $test_client2 = new Client($client_name2, $email2, $id, $stylist_id);
+            $test_client2->save();
 
             Client::deleteAll();
             $result = Client::getAll();
@@ -138,5 +138,25 @@
 
             $this->assertEquals($test_client, $result);
         }
+
+        function test_delete()
+        {
+            $stylist_id = 1;
+
+            $client_name = "Eric Slickhair";
+            $email = "eslickhair@email.com";
+            $test_client = new Client($client_name, $email, $id, $stylist_id);
+            $test_client->save();
+
+            $client_name2 = "Paul Styles";
+            $email2 = "pstyles@email.com";
+            $test_client2 = new Client($client_name2, $email2, $id, $stylist_id);
+            $test_client2->save();
+
+            $test_client->delete();
+
+            $this->assertEquals([$test_client2], Client::getAll());
+        }
+
     }
 ?>

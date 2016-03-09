@@ -21,6 +21,11 @@
         return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
     });
 
+    $app->post("/deleted", function() use ($app){
+        Stylist::deleteAll();
+        return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
+    });
+
     $app->get("/stylists/{id}", function($id) use ($app){
         $stylist = Stylist::find($id);
         return $app['twig']->render('stylists.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));

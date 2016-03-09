@@ -36,9 +36,21 @@
             return $this->id;
         }
 
+        function updateEmail($new_email)
+        {
+            $GLOBALS['DB']->exec("UPDATE clients SET email = '{$new_email}' WHERE id = {$this->getClientId()};");
+            $this->setName($new_email);
+        }
+
+
         function save(){
             $GLOBALS['DB']->exec("INSERT INTO clients (name, email, stylist_id) VALUES ('{$this->getClientName()}','{$this->getEmail()}', {$this->getStylistId()});");
             $this->id = $GLOBALS['DB']->lastInsertId();
+        }
+
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM clients WHERE id = {$this->getId()};");
         }
 
         static function getAll(){
