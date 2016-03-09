@@ -38,8 +38,8 @@
 
         function updateEmail($new_email)
         {
-            $GLOBALS['DB']->exec("UPDATE clients SET email = '{$new_email}' WHERE id = {$this->getClientId()};");
-            $this->setName($new_email);
+            $GLOBALS['DB']->exec("UPDATE clients SET email = '{$new_email}' WHERE id = {$this->getId()};");
+            $this->setClientName($new_email);
         }
 
 

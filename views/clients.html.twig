@@ -12,12 +12,14 @@
 
     <h4>Update {{ client.getClientName }}'s email:</h4>
     <form action="/client/{{ client.getId }}/updated" method="post">
+        <input name="_method" type="hidden" value="patch">
         <label for="new_email">New Email:</label>
         <input type="text" name="new_email">
         <button type="submit">Update</button>
     </form>
 
     <form action="/client/{{ client.getId }}/deleted" method="post">
+
         <input name="_method" type="hidden" value="delete">
         <button type='submit'>Delete Client</button>
     </form>
