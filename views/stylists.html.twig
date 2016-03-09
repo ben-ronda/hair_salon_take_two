@@ -9,7 +9,7 @@
         <p>Here are the clients:</p>
         <ul>
             {% for client in clients %}
-                <li>{{ client.getClientName }} : {{client.getEmail }}</li>
+                <li><a href="/client/{{ client.getId }}">{{ client.getClientName }}</a> : {{client.getEmail }}</li>
             {% endfor %}
         </ul>
     {% endif %}

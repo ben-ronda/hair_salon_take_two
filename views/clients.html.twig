@@ -4,32 +4,22 @@
     <title>Hair Salon</title>
   </head>
   <body>
-    <h1>Clients</h1>
+    <h1>{{ client.getClientName }}</h1>
+    <ul>
+        <li>{{ client.getEmail }}</li>
+    </ul>
 
-    {% if clients is not empty %}
-      <p>Clients:</p>
-      <ul>
-        {% for client in clients %}
-          <li>{{ client.getName : client.getEmail }}</li>
-        {% endfor %}
-      </ul>
-    {% endif %}
 
-    <form action='/clients' method='post'>
-      <div>
-        <label for='client_name'>Client Name:</label>
-        <input id='client_name' name='client_name' type='text'>
-      </div>
-      <div>
-        <label for='email'>Client Email</label>
-        <input id='email' name='email' type='text'>
-      </div>
-
-      <button type="submit">Add Client</button>
+    <h4>Update {{ client.getClientName }}'s email:</h4>
+    <form action="/client/{{ client.getId }}/updated" method="post">
+        <label for="new_email">New Email:</label>
+        <input type="text" name="new_email">
+        <button type="submit">Update</button>
     </form>
 
-    <form action="/delete_clients" method="post">
-      <button type="submit">Clear</button>
+    <form action="/client/{{ client.getId }}/deleted" method="post">
+        <input name="_method" type="hidden" value="delete">
+        <button type='submit'>Delete Client</button>
     </form>
 
     <p><a href='/'>Home</a></p>
